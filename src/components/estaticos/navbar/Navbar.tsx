@@ -36,11 +36,14 @@ function Navbar() {
                           cadastrar tema
                       </Typography>
                   </Box>
+                  <Link to='/login' className='text-decorator-none'>
                   <Box mx={1} className='cursor'>
                       <Typography variant="h6" color="inherit">
                           logout
                       </Typography>
-                  </Box>
+                    </Box>
+                  </Link>
+                  
               </Box>
 
           </Toolbar>
