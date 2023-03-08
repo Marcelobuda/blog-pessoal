@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Postagem from '../../../pagina/models/Postagem';
+import {Postagem} from '../../../pagina/models/Postagem';
 import { busca } from '../../../services/Service'
 import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
-import useLocalStorage from 'react-use-localstorage';
+import {useLocalStorage} from 'react-use-localstorage';
 import { useNavigate } from 'react-router-dom'
 import './ListaPostagem.css';
 
