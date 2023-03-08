@@ -1,39 +1,35 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Login from './pagina/login/Login';
 import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
-import CadastroUsuario from './pagina/cadastroUsuario/CadastroUsuario';
 import Home from './pagina/home/Home';
-import Login from './pagina/login/Login';
+import CadastroUsuario from './pagina/cadastroUsuario/CadastroUsuario';
+import ListaTema from './components/temas/listatema/ListaTema';
+import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import './App.css';
 
 
   function App() {
     return (
-      <Router>
-        <Navbar />
-          <Routes >
-            <div style={{minHeight: '100vh'}}>
-              <Route exact path='/'>
-                <Login />
-              </Route>
-
-              <Route path='/login'>
-                <Login />
-              </Route>
-
-              <Route path='/home'>
-                <Home />
-              </Route>
-              
-              <Route path='/cadastrousuario'>
-                <CadastroUsuario />
-              </Route>
-            </div>
-          </Routes>
-      <Footer />
-    </Router>
-  );
-}
+          <>
+          <Router>
+            <Navbar />
+              <div style={{ minHeight: '100vh' }}>
+                <Routes> // Antigo Switch
+                 <Route path="/" element={<Login />} />
+                 <Route path="/login" element={<Login />} />
+                 <Route path="/home" element={<Home />} />
+                 <Route path="/cadastrar" element={<CadastroUsuario />} />
+                 <Route path="/tema" element={<ListaTema />} />
+                 <Route path="/posts" element={<ListaPostagem/>} />
+                </Routes>
+              </div>
+                <Footer />
+          </Router>
+        </>
+  )
+      ;
+    }
 
 export default App;
