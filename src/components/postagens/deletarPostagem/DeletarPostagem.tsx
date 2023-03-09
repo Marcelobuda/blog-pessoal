@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
-import {Box} from '@mui/material';
 import './DeletarPostagem.css';
+import { useNavigate, useParams } from 'react-router-dom';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
-import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import {Box} from '@mui/material';
 
 function DeletarPostagem() {
     let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+      (state) => state.tokens
+    );
     const [post, setPosts] = useState<Postagem>()
 
     useEffect(() => {
@@ -48,7 +51,6 @@ function DeletarPostagem() {
           function nao() {
             navigate('/posts')
           }
-   
   return (
     <>
       <Box m={2}>
@@ -72,7 +74,7 @@ function DeletarPostagem() {
               </Button>
               </Box>
               <Box>
-              <Button onClick={nao}  variant="contained" size='large' color="secondary">
+              <Button  onClick={nao} variant="contained" size='large' color="secondary">
                 Não
               </Button>
               </Box>
